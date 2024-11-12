@@ -6,7 +6,13 @@
     "buildResources": "assets"
   },
   "files": ["out/**/*", "electron/dist/**/*"],
-  "publish": null,
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "DeJavuAE86",
+      "repo": "task-management-app"
+    }
+  ],
   "mac": {
     "category": "public.app-category.productivity"
   },
