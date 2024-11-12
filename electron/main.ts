@@ -1,7 +1,6 @@
-import * as path from 'path';
-
 import { app, BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
+import * as path from 'path';
 
 function createWindow() {
   const mainWindow = new BrowserWindow({

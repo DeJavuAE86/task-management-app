@@ -1,0 +1,36 @@
+{
+  "appId": "com.k-on.taskmanager",
+  "productName": "K-ON! Task Manager",
+  "directories": {
+    "output": "dist",
+    "buildResources": "assets"
+  },
+  "files": ["out/**/*", "electron/dist/**/*"],
+  "mac": {
+    "category": "public.app-category.productivity"
+  },
+  "win": {
+    "icon": "assets/icon.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "${productName}-Setup-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "installerIcon": "assets/icon.ico",
+    "uninstallerIcon": "assets/icon.ico",
+    "installerHeaderIcon": "assets/icon.ico"
+  },
+  "linux": {
+    "icon": "assets/icon.png",
+    "target": ["AppImage", "deb"],
+    "category": "Utility"
+  }
+}

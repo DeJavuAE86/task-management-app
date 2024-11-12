@@ -2,7 +2,13 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "task-management-app",
   "version": "0.1.0",
+  "description": "A cute task manager inspired by K-ON!",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
   "private": true,
+  "main": "electron/dist/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +20,17 @@
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss}\" --fix",
     "type-check": "tsc --noEmit",
-    "lint:all": "pnpm lint && pnpm format:check && pnpm stylelint && pnpm type-check"
+    "lint:all": "pnpm lint && pnpm format:check && pnpm stylelint && pnpm type-check",
+    "electron-dev": "concurrently \"pnpm dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "next build && electron-builder",
+    "electron-pack": "electron-builder -c.extraMetadata.main=electron/main.js",
+    "build:electron": "tsc --project tsconfig.electron.json",
+    "build:next": "next build",
+    "build:all": "pnpm build:next && pnpm build:electron",
+    "package": "pnpm build:all && electron-builder",
+    "package:win": "cross-env ELECTRON_BUILDER_ARCH=x64 electron-builder --windows --x64",
+    "package:mac": "pnpm build:all && electron-builder --mac",
+    "package:linux": "pnpm build:all && electron-builder --linux"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
@@ -25,12 +41,18 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/electron": "^1.6.12",
+    "@types/node": "^20.17.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "autoprefixer": "^10.0.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
+    "electron-vite": "^2.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
@@ -47,6 +69,20 @@
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.6.3",
+    "vite-plugin-electron": "^0.28.0",
+    "wait-on": "^7.2.0",
+    "cross-env": "^7.0.3"
+  },
+  "build": {
+    "extends": null,
+    "files": [
+      "out/**/*",
+      "electron/dist/**/*"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    }
   }
 }
