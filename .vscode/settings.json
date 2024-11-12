@@ -9,11 +9,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.validate": [
-    "css",
-    "scss",
-    "postcss"
-  ],
+  "stylelint.validate": ["css", "scss", "postcss"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "[javascript]": {
