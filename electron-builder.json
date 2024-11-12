@@ -6,6 +6,7 @@
     "buildResources": "assets"
   },
   "files": ["out/**/*", "electron/dist/**/*"],
+  "publish": null,
   "mac": {
     "category": "public.app-category.productivity"
   },
