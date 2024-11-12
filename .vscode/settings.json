@@ -37,16 +37,9 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "package.json"
-      ],
-      "url": "https://json.schemastore.org/package.json"
-    }
-  ],
   "http.proxySupport": "off",
   "http.proxy": "",
   "http.proxyAuthorization": null,
-  "postcss.validate": false
+  "json.validate.enable": false,
+  "json.schemaDownload.enable": false
 }
