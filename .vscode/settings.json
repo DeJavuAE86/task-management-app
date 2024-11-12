@@ -42,10 +42,11 @@
       "fileMatch": [
         "package.json"
       ],
-      "url": "./.vscode/schemas/package.schema.json"
+      "url": "https://json.schemastore.org/package.json"
     }
   ],
   "http.proxySupport": "off",
   "http.proxy": "",
-  "http.proxyAuthorization": null
+  "http.proxyAuthorization": null,
+  "postcss.validate": false
 }

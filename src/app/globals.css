@@ -3,19 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf6e3;
+  --foreground: #744436;
+  --primary: #b17c55;
+  --primary-light: #e6b89c;
+  --primary-dark: #744436;
+  --accent: #d4a285;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #744436;
+    --foreground: #fdf6e3;
+    --primary: #e6b89c;
+    --primary-light: #fdf6e3;
+    --primary-dark: #b17c55;
+    --accent: #d4a285;
   }
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+@layer utilities {
+  .animate-sakura-fall {
+    animation: sakura-fall 10s linear forwards;
+  }
+}
+
+@keyframes sakura-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(-10vh) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(360deg);
+  }
 }
